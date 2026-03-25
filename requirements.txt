@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+google-api-python-client
+youtube-transcript-api
+vaderSentiment
+numpy
+tensorflow-cpu==2.15.0
+python-dotenv

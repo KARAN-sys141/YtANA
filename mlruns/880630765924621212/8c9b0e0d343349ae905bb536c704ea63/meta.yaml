@@ -1,0 +1,14 @@
+artifact_uri: file:///D:/AI_YouTube_Sentiment_Analysis/mlruns/880630765924621212/8c9b0e0d343349ae905bb536c704ea63/artifacts
+end_time: 1772516672251
+entry_point_name: ''
+experiment_id: '880630765924621212'
+lifecycle_stage: active
+run_id: 8c9b0e0d343349ae905bb536c704ea63
+run_name: merciful-mouse-306
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1772516654409
+status: 4
+tags: []
+user_id: karan

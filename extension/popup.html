@@ -1,0 +1,382 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>YT Intelligence</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="chart.js"></script>
+</head>
+<body>
+
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+
+    <div class="app-container">
+        
+        <header>
+            <div class="logo">
+                <span class="icon">⚡</span> YT INTEL
+            </div>
+            <button id="analyzeBtn" class="neon-btn">ANALYZE VIDEO</button>
+        </header>
+
+        <div id="loader" class="loader-wrapper hidden">
+            <div class="scanner"></div>
+            <p class="loader-text">Initializing Neural Network...</p>
+        </div>
+
+        <div id="mainContent" class="hidden">
+            
+            <div class="tabs-container">
+                <button class="tab-btn active" data-tab="overview">OVERVIEW</button>
+                <button class="tab-btn" data-tab="comments">COMMENTS</button>
+                <button class="tab-btn" data-tab="analysis">DEEP DATA</button>
+            </div>
+
+            <div id="overview" class="tab-content active">
+                
+                <div class="stats-grid-4">
+                    <div class="glass-card stat-box-small">
+                        <h3 class="stat-label">TOTAL</h3>
+                        <h2 id="totalComments">0</h2>
+                    </div>
+                    <div class="glass-card stat-box-small">
+                        <h3 class="stat-label">AVG LENGTH</h3>
+                        <h2 id="avgLength">0</h2>
+                    </div>
+                    <div class="glass-card stat-box-small">
+                        <h3 class="stat-label">TOXICITY</h3>
+                        <h2 id="toxicScore" class="safe">0%</h2>
+                    </div>
+                    <div class="glass-card stat-box-small">
+                        <h3 class="stat-label">MOOD</h3>
+                        <h2 id="topEmotion">--</h2>
+                    </div>
+                </div>
+
+                <div class="glass-card">
+                    <h3>📝 AI Summary</h3>
+                    <div id="summaryText" class="summary-content">
+                        Waiting for analysis...
+                    </div>
+                </div>
+
+                <div class="glass-card">
+                    <h3>📊 Overall Sentiment</h3>
+                    <div class="sentiment-track">
+                        <div id="bar-pos" class="track-fill pos" style="width: 0%"></div>
+                        <div id="bar-neu" class="track-fill neu" style="width: 100%"></div>
+                        <div id="bar-neg" class="track-fill neg" style="width: 0%"></div>
+                    </div>
+                    <div class="sentiment-legend">
+                        <span class="l-pos">POS: <b id="lbl-pos">0%</b></span>
+                        <span class="l-neu">NEU: <b id="lbl-neu">0%</b></span>
+                        <span class="l-neg">NEG: <b id="lbl-neg">0%</b></span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="comments" class="tab-content">
+                <div id="commentsList" class="scroll-area">
+                    </div>
+            </div>
+
+            <div id="analysis" class="tab-content">
+                
+                <div class="glass-card chart-container" style="height: 280px;">
+                    <h3>🎭 Emotional Fingerprint</h3>
+                    <canvas id="emotionRadarChart"></canvas>
+                </div>
+
+                <div class="glass-card">
+                    <h3>🗣️ Top Keywords</h3>
+                    <div id="keywordCloud" class="keyword-box">
+                        </div>
+                </div>
+
+                <div class="glass-card chart-container">
+                    <h3>🧠 Sentiment Ratio</h3>
+                    <canvas id="sentimentChart"></canvas>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="error" class="error-toast hidden"></div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html> -->
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>YT Intelligence Pro</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="chart.js"></script>
+</head>
+<body>
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+
+    <div class="app-container">
+        
+        <header>
+            <div class="logo"><span class="icon">⚡</span> YT INTEL PRO</div>
+        </header>
+
+        <div id="landingPage" class="landing-wrapper">
+            <img id="ytThumb" class="yt-thumb" src="" alt="Video Thumbnail" style="display: none;">
+            <h2 id="ytTitle" class="yt-title">Detecting Video...</h2>
+            <button id="analyzeBtn" class="neon-btn analyze-main-btn" disabled>ANALYZE VIDEO</button>
+        </div>
+
+        <div id="loader" class="loader-wrapper hidden">
+            <div class="scanner"></div>
+            <p class="loader-text">Extracting Data...</p>
+        </div>
+
+        <div id="mainContent" class="hidden">
+            <div class="tabs-container">
+                <button class="tab-btn active" data-tab="overview">OVERVIEW</button>
+                <button class="tab-btn" data-tab="comments">COMMENTS</button>
+                <button class="tab-btn" data-tab="analysis">DEEP DATA</button>
+            </div>
+
+            <div id="overview" class="tab-content active">
+                <div class="stats-grid-4">
+                    <div class="glass-card stat-box-small">
+                        <h3>TOTAL</h3>
+                        <h2 id="totalComments">0</h2>
+                    </div>
+                    <div class="glass-card stat-box-small">
+                        <h3>AVG LEN</h3>
+                        <h2 id="avgLength">0</h2>
+                    </div>
+                    <div class="glass-card stat-box-small">
+                        <h3>TOXICITY</h3>
+                        <h2 id="toxicScore">0%</h2>
+                    </div>
+                    <div class="glass-card stat-box-small">
+                        <h3>MOOD</h3>
+                        <h2 id="topEmotion">--</h2>
+                    </div>
+                </div>
+
+                <div class="glass-card">
+                    <h3>📊 Audience Sentiment</h3>
+                    <div class="sentiment-track">
+                        <div id="bar-pos" class="track-fill pos" style="width:0%"></div>
+                        <div id="bar-neu" class="track-fill neu" style="width:100%"></div>
+                        <div id="bar-neg" class="track-fill neg" style="width:0%"></div>
+                    </div>
+                    <div class="sentiment-legend">
+                        <span class="l-pos">POS: <b id="lbl-pos">0%</b></span>
+                        <span class="l-neu">NEU: <b id="lbl-neu">0%</b></span>
+                        <span class="l-neg">NEG: <b id="lbl-neg">0%</b></span>
+                    </div>
+                </div>
+
+                <div class="glass-card">
+                    <h3>📝 AI Summary</h3>
+                    <div id="summaryText" class="summary-content">
+                        Click Analyze to generate summary...
+                    </div>
+                </div>
+
+                <div class="verdict-grid">
+                    <div class="glass-card verdict-box">
+                        <h3>🤖 AI Verdict</h3>
+                        <div id="aiVerdict" class="verdict-text">Waiting...</div>
+                    </div>
+                    <div class="glass-card verdict-box">
+                        <h3>💬 Chat Quality</h3>
+                        <div id="chatQuality" class="verdict-text">Waiting...</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="comments" class="tab-content">
+                <div id="commentsList" class="scroll-area"></div>
+            </div>
+
+            <div id="analysis" class="tab-content">
+                <div class="glass-card chart-container" style="height:280px">
+                    <h3>🎭 Emotional Radar</h3>
+                    <canvas id="emotionRadarChart"></canvas>
+                </div>
+                <div class="glass-card">
+                    <h3>🗣️ Top Keywords</h3>
+                    <div id="keywordCloud" class="keyword-box"></div>
+                </div>
+                <div class="glass-card chart-container" style="height:220px">
+                    <h3>🧠 Sentiment Split</h3>
+                    <canvas id="sentimentChart"></canvas>
+                </div>
+
+                <div class="glass-card chart-container" style="height: 220px;">
+                    <h3>🎯 Audience Intent</h3>
+                    <canvas id="intentChart"></canvas>
+                </div>
+
+                <div class="glass-card">
+                    <h3>🔗 Top Phrases</h3>
+                    <div id="phraseCloud" class="keyword-box"></div>
+                </div>
+
+                <div class="glass-card">
+                    <h3>🤩 Emoji Cloud</h3>
+                    <div id="emojiCloud" class="emoji-box"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="error" class="error-toast hidden"></div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>YT Intelligence Pro</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="chart.js"></script>
+</head>
+<body>
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+
+    <div class="app-container">
+        
+        <header>
+            <div class="logo"><span class="icon">⚡</span> YT INTEL PRO</div>
+        </header>
+
+        <div id="landingPage" class="landing-wrapper">
+            <img id="ytThumb" class="yt-thumb" src="" alt="Thumbnail" style="display: none;">
+            <h2 id="ytTitle" class="yt-title">Detecting Video...</h2>
+            <button id="analyzeBtn" class="neon-btn analyze-main-btn" disabled>ANALYZE VIDEO</button>
+        </div>
+
+        <div id="loader" class="loader-wrapper hidden">
+            <div class="scanner"></div>
+            <p class="loader-text">Extracting Data...</p>
+        </div>
+
+        <div id="mainContent" class="hidden">
+            
+            <div class="tabs-container">
+                <button class="tab-btn active" data-tab="overview">OVERVIEW</button>
+                <button class="tab-btn" data-tab="comments">COMMENTS</button>
+                <button class="tab-btn" data-tab="analysis">DEEP DATA</button>
+            </div>
+
+            <div id="overview" class="tab-content active">
+                
+                <div class="stats-grid-4">
+                    <div class="glass-card stat-box-small">
+                        <h3 class="stat-label">TOTAL</h3>
+                        <h2 id="totalComments">0</h2>
+                    </div>
+                    <div class="glass-card stat-box-small">
+                        <h3 class="stat-label">AVG LEN</h3>
+                        <h2 id="avgLength">0</h2>
+                    </div>
+                    <div class="glass-card stat-box-small">
+                        <h3 class="stat-label">TOXICITY</h3>
+                        <h2 id="toxicScore" class="safe">0%</h2>
+                    </div>
+                    <div class="glass-card stat-box-small">
+                        <h3 class="stat-label">MOOD</h3>
+                        <h2 id="topEmotion">--</h2>
+                    </div>
+                </div>
+
+                <div class="glass-card">
+                    <h3> AI Summary</h3>
+                    <div id="summaryText" class="summary-content">Loading summary...</div>
+                </div>
+
+                <div class="glass-card">
+                    <h3> Overall Sentiment</h3>
+                    <div class="sentiment-track">
+                        <div id="bar-pos" class="track-fill pos" style="width: 0%"></div>
+                        <div id="bar-neu" class="track-fill neu" style="width: 100%"></div>
+                        <div id="bar-neg" class="track-fill neg" style="width: 0%"></div>
+                    </div>
+                    <div class="sentiment-legend">
+                        <span class="l-pos">POS: <b id="lbl-pos">0%</b></span>
+                        <span class="l-neu">NEU: <b id="lbl-neu">0%</b></span>
+                        <span class="l-neg">NEG: <b id="lbl-neg">0%</b></span>
+                    </div>
+                </div>
+
+                <div class="verdict-grid">
+                    <div class="glass-card verdict-box">
+                        <h3> AI Verdict</h3>
+                        <div id="aiVerdict" class="verdict-text">Waiting...</div>
+                    </div>
+                    <div class="glass-card verdict-box">
+                        <h3>💬 Chat Quality</h3>
+                        <div id="chatQuality" class="verdict-text">Waiting...</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="comments" class="tab-content">
+                <div id="commentsList" class="scroll-area"></div>
+            </div>
+
+            <div id="analysis" class="tab-content">
+                
+                <div class="glass-card chart-container" style="height: 280px;">
+                    <h3> Emotional Fingerprint</h3>
+                    <canvas id="emotionRadarChart"></canvas>
+                </div>
+
+                <div class="glass-card">
+                    <h3>☁️ Word Cloud</h3>
+                    <div id="keywordCloud" class="keyword-box"></div>
+                </div>
+
+                <div class="glass-card chart-container">
+                    <h3> Sentiment Ratio</h3>
+                    <canvas id="sentimentChart"></canvas>
+                </div>
+
+                <div class="glass-card chart-container" style="height: 220px;">
+                    <h3> Audience Intent</h3>
+                    <canvas id="intentChart"></canvas>
+                </div>
+
+                <div class="glass-card">
+                    <h3> Top Phrases</h3>
+                    <div id="phraseCloud" class="keyword-box"></div>
+                </div>
+
+                <div class="glass-card">
+                    <h3> Emoji Cloud</h3>
+                    <div id="emojiCloud" class="emoji-box"></div>
+                </div>
+
+            </div>
+        </div>
+        <div id="error" class="error-toast hidden"></div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>

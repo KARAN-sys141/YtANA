@@ -1,0 +1,14 @@
+artifact_uri: file:///D:/AI_YouTube_Sentiment_Analysis/mlruns/880630765924621212/0589de49adae42aab7c6d3dc81c41e89/artifacts
+end_time: 1772516605078
+entry_point_name: ''
+experiment_id: '880630765924621212'
+lifecycle_stage: active
+run_id: 0589de49adae42aab7c6d3dc81c41e89
+run_name: funny-foal-547
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1772516605017
+status: 3
+tags: []
+user_id: karan
