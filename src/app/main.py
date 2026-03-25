@@ -12,7 +12,6 @@ from googleapiclient.discovery import build
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 from dotenv import load_dotenv
 
-# --- CONFIGURATION & SECURITY ---
 load_dotenv()
 
 os.environ["TF_USE_LEGACY_KERAS"] = "1"
@@ -221,7 +220,6 @@ def analyze_api(req: VideoRequest):
     }
 
 
-# 🚀 LOCAL SMART INSIGHT ENGINE (No Cloud API Required)
 @app.post("/summarize")
 def summarize_api(req: VideoRequest):
     vid = extract_video_id(req.video_id)
@@ -229,7 +227,6 @@ def summarize_api(req: VideoRequest):
         comments = fetch_comments(vid)
         if not comments: return {"summary": "No comments available.", "demands": []}
 
-        # 1. 🚀 Extracting Public Demands
         demand_keywords = ['please make', 'we want', 'next part', 'tutorial on', 'can you', 'upload', 'demand', 'make a video', 'waiting for', 'bring', 'we need', 'how to']
         found_demands = []
         for c in comments:
@@ -239,15 +236,12 @@ def summarize_api(req: VideoRequest):
                 if clean_comment not in found_demands: found_demands.append(clean_comment)
                 if len(found_demands) >= 3: break
 
-        # 2. 🧠 Generating Smart Local Summary
-        # A) Get Video Title
         try:
             video_resp = yt_service.videos().list(part="snippet", id=vid).execute()
             title = video_resp['items'][0]['snippet']['title'] if video_resp['items'] else "this topic"
         except:
             title = "this video"
 
-        # B) Get Overall Vibe (Fast VADER check on top 50 comments)
         pos, neg = 0, 0
         for c in comments[:50]:
             comp = vader.polarity_scores(c)['compound']
@@ -260,7 +254,6 @@ def summarize_api(req: VideoRequest):
         elif pos > neg: vibe = "Mostly Positive"
         elif neg > pos: vibe = "Mostly Negative"
 
-        # C) Extract Top Topics (Keywords)
         text_block = " ".join(comments[:100]).lower()
         words = re.findall(r'\b[a-z]{4,15}\b', text_block)
         stops = {'this','that','video','watch','just','have','your','with','from','like','good','very','what','when','time','make','know','about','best','love','people','content', 'please', 'thank', 'thanks', 'really', 'much', 'would'}
