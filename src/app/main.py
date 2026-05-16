@@ -259,7 +259,6 @@ def summarize_api(req: VideoRequest):
         stops = {'this','that','video','watch','just','have','your','with','from','like','good','very','what','when','time','make','know','about','best','love','people','content', 'please', 'thank', 'thanks', 'really', 'much', 'would'}
         top_words = Counter([w for w in words if w not in stops]).most_common(2)
         
-        # D) Construct Final Smart Insight
         if len(top_words) >= 2:
             t1, t2 = top_words[0][0], top_words[1][0]
             summary_text = f"The audience is highly engaged with '{title}'. The overall sentiment is {vibe}, with core discussions revolving around topics like '{t1}' and '{t2}'."

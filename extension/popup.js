@@ -1,6 +1,6 @@
 
 // Example: const API_BASE_URL = "https://youtube-intel-backend.onrender.com";
-const API_BASE_URL = "http://127.0.0.1:8000";
+const API_BASE_URL = " https://ytana.onrender.com";
 
 let sentimentChartInstance = null;
 let emotionRadarInstance = null;
@@ -288,7 +288,7 @@ function renderCharts(stats, deep_data) {
         intentChartInstance = new Chart(intentEl.getContext("2d"), {
             type: 'pie',
             data: {
-                labels: ['Questions ❓', 'Appreciation 👏', 'Requests 🙏', 'Discussion 💬'],
+                labels: ['Questions ❓', 'Appreciation ', 'Requests ', 'Discussion 💬'],
                 datasets: [{
                     data: [
                         deep_data.intents.question, 
